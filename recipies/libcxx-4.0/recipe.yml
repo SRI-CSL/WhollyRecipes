@@ -6,8 +6,12 @@ revision: 1
 
 # Dependencies
 dependencies:
-  musl-libc:
-    - headers
+    musl-libc:
+        - headers
+    python-2.7:
+        - rtlibs
+        - bin
+
 
 # Source
 source:
@@ -46,7 +50,7 @@ build:
       -DCMAKE_C_FLAGS="-I{__SRC_DIR__}/include"
       -DCMAKE_INSTALL_PREFIX={__INSTALL_DIR__}
     .. &&
-    make &&
+    make -j{__NB_CORES__} &&
     make install &&
     cd ../..
   # Build libcxxabi
@@ -66,7 +70,7 @@ build:
       -DLIBCXXABI_ENABLE_SHARED=0
       -DCMAKE_INSTALL_PREFIX={__INSTALL_DIR__}
     .. &&
-    make &&
+    make -j{__NB_CORES__} &&
     make install &&
     cd ../..
   # Build libcxx and install
@@ -85,5 +89,5 @@ build:
       -DLIBCXX_CXX_ABI_LIBRARY_PATH="{__SRC_DIR__}/libcxxabi/build/lib"
       -DCMAKE_INSTALL_PREFIX={__INSTALL_DIR__}
       .. &&
-    make &&
+    make -j{__NB_CORES__} &&
     make install
