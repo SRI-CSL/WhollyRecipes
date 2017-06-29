@@ -1,0 +1,9 @@
+headers:
+  - /usr/include/zconf.h
+  - /usr/include/zlib.h
+
+libs:
+  - /usr/lib/libz.a
+
+bc:
+  - /usr/bc

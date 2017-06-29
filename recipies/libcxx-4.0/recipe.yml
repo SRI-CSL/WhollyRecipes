@@ -1,0 +1,89 @@
+variables:
+  - pkg_name: libcxx
+  - pkg_ver: '4.0.0'
+
+revision: 1
+
+# Dependencies
+dependencies:
+  musl-libc:
+    - headers
+
+# Source
+source:
+  tar.gz: http://releases.llvm.org/{pkg_ver}/{pkg_name}-{pkg_ver}.src.tar.xz
+
+resources:
+  - libcxx_check_musl_libc_max_align.patch
+
+# Prepare stage
+prepare:
+  - apk add cmake
+
+# Build stage
+build:
+  # Download required sources
+  - curl "http://releases.llvm.org/{pkg_ver}/llvm-{pkg_ver}.src.tar.xz" -o llvm.tar.xz &&
+    curl "http://releases.llvm.org/{pkg_ver}/libunwind-{pkg_ver}.src.tar.xz" -o libunwind.tar.xz &&
+    curl "http://releases.llvm.org/{pkg_ver}/libcxxabi-{pkg_ver}.src.tar.xz" -o libcxxabi.tar.xz &&
+    mkdir llvm && tar xf llvm.tar.xz -C llvm --strip-components 1 &&
+    mkdir libcxxabi && tar xf libcxxabi.tar.xz -C libcxxabi --strip-components 1 &&
+    mkdir libunwind && tar xf libunwind.tar.xz -C libunwind --strip-components 1
+  # Patch source files
+  - cd include &&
+    patch -p1 < ../../libcxx_check_musl_libc_max_align.patch &&
+    cd ..
+  # Build libunwind
+  - cd libunwind &&
+    mkdir build &&
+    cd build &&
+    GLLVM_CONFIGURE_ONLY=1 cmake
+      -DCMAKE_C_COMPILER=gclang
+      -DCMAKE_CXX_COMPILER=gclang++
+      -DLIBUNWIND_ENABLE_SHARED=0
+      -DLLVM_PATH="../../llvm"
+      -DCMAKE_CXX_FLAGS="-I{__SRC_DIR__}/include"
+      -DCMAKE_C_FLAGS="-I{__SRC_DIR__}/include"
+      -DCMAKE_INSTALL_PREFIX={__INSTALL_DIR__}
+    .. &&
+    make &&
+    make install &&
+    cd ../..
+  # Build libcxxabi
+  - cd libcxxabi &&
+    mkdir build &&
+    cd build &&
+    GLLVM_CONFIGURE_ONLY=1 cmake
+      -DCMAKE_C_COMPILER=gclang
+      -DCMAKE_CXX_COMPILER=gclang++
+      -DLLVM_PATH="../../llvm"
+      -DCMAKE_CXX_FLAGS="-I{__SRC_DIR__}/include"
+      -DCMAKE_C_FLAGS="-I{__SRC_DIR__}/include"
+      -DCMAKE_SHARED_LINKER_FLAGS="-L{__SRC_DIR__}/libunwind/build/lib"
+      -DLIBCXXABI_USE_LLVM_UNWINDER=1
+      -DLIBCXXABI_LIBUNWIND_PATH="{__SRC_DIR__}/libunwind"
+      -DLIBCXXABI_LIBCXX_INCLUDES="{__SRC_DIR__}/include"
+      -DLIBCXXABI_ENABLE_SHARED=0
+      -DCMAKE_INSTALL_PREFIX={__INSTALL_DIR__}
+    .. &&
+    make &&
+    make install &&
+    cd ../..
+  # Build libcxx and install
+  - mkdir build &&
+    cd build &&
+    cmake
+      -DCMAKE_C_COMPILER=gclang
+      -DCMAKE_CXX_COMPILER=gclang++
+      -DLLVM_PATH="../llvm"
+      -DLIBCXX_HAS_MUSL_LIBC=1
+      -DLIBCXX_HAS_GCC_S_LIB=0
+      -DLIBCXX_ENABLE_SHARED=0
+      -DLIBCXX_CXX_ABI=libcxxabi
+      -DLIBCXX_ENABLE_ABI_LINKER_SCRIPT=0
+      -DLIBCXX_CXX_ABI_INCLUDE_PATHS="{__SRC_DIR__}/libcxxabi/include"
+      -DLIBCXX_CXX_ABI_LIBRARY_PATH="{__SRC_DIR__}/libcxxabi/build/lib"
+      -DCMAKE_INSTALL_PREFIX={__INSTALL_DIR__}
+      .. &&
+    make &&
+    make install

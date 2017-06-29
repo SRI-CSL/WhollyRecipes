@@ -1,0 +1,25 @@
+variables:
+  - pkg_name: openssl
+  - pkg_ver: '1.1.0e'
+
+revision: 1
+
+# Dependencies
+dependencies:
+  musl-libc:
+    - headers
+    - libs
+
+prepare:
+  - apk add linux-headers perl
+
+# Source
+source:
+  tar.gz: https://www.openssl.org/source/{pkg_name}-{pkg_ver}.tar.gz
+
+# Build stage
+build:
+  - CC=gclang
+    ./Configure no-async no-asm -static -I/usr/include --prefix={__INSTALL_DIR__} linux-x86_64-clang
+  - make CC=gclang
+  - make install

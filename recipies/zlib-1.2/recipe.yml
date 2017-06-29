@@ -1,0 +1,26 @@
+variables:
+  - pkg_name: zlib
+  - pkg_ver: '1.2.11'
+
+revision: 1
+
+# Dependencies
+dependencies:
+  musl-libc:
+    - headers
+    - libs
+
+# Source
+source:
+  tar.gz: http://zlib.net/{pkg_name}-{pkg_ver}.tar.gz
+
+# Build stage
+build:
+  - GLLVM_CONFIGURE_ONLY=1
+    CC=gclang
+    CFLAGS="-static"
+    ./configure
+    --prefix={__INSTALL_DIR__}
+    --static
+  - make
+  - make install

@@ -1,0 +1,27 @@
+variables:
+  - pkg_name: libffi
+  - pkg_ver: '3.2.1'
+
+revision: 1
+
+# Dependencies
+dependencies:
+  musl-libc:
+    - headers
+    - libs
+
+# Source
+source:
+  tar.gz: ftp://sourceware.org/pub/{pkg_name}/{pkg_name}-{pkg_ver}.tar.gz
+
+# Build stage
+build:
+  - GLLVM_CONFIGURE_ONLY=1
+    CC=gclang
+    ./configure
+    --prefix={__INSTALL_DIR__}
+    --enable-shared=no
+  - make
+  - make install
+  - mkdir -p {__INSTALL_DIR__}/include
+  - cp {__INSTALL_DIR__}/lib/libffi-3.2.1/include/* {__INSTALL_DIR__}/include/

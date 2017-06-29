@@ -1,0 +1,25 @@
+variables:
+  - pkg_name: expat
+  - pkg_ver: '2.2.0'
+
+revision: 1
+
+# Dependencies
+dependencies:
+  musl-libc:
+    - headers
+    - libs
+
+# Source
+source:
+  tar.bz2: https://superb-sea2.dl.sourceforge.net/project/{pkg_name}/{pkg_name}/{pkg_ver}/{pkg_name}-{pkg_ver}.tar.bz2
+
+# Build stage
+build:
+  - GLLVM_CONFIGURE_ONLY=1
+    CC=gclang
+    ./configure
+    --prefix={__INSTALL_DIR__}
+    --enable-shared=no
+  - make
+  - make install

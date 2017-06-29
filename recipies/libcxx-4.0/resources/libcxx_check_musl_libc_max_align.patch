@@ -1,0 +1,12 @@
+diff -uNr include/stddef.h include.patched/stddef.h
+--- include/stddef.h	2017-05-25 15:14:28.000000000 -0700
++++ include.patched/stddef.h	2017-05-25 15:41:02.000000000 -0700
+@@ -53,7 +53,7 @@
+ }
+ 
+ // Re-use the compiler's <stddef.h> max_align_t where possible.
+-#if !defined(__CLANG_MAX_ALIGN_T_DEFINED) && !defined(_GCC_MAX_ALIGN_T)
++#if !defined(__CLANG_MAX_ALIGN_T_DEFINED) && !defined(_GCC_MAX_ALIGN_T) && !defined(__DEFINED_max_align_t)
+ typedef long double max_align_t;
+ #endif
+ 

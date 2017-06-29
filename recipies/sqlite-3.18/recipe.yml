@@ -1,0 +1,28 @@
+variables:
+  - pkg_name: sqlite
+  - pkg_ver: '3.18.0'
+
+revision: 1
+
+# Dependencies
+dependencies:
+  musl-libc:
+    - headers
+    - libs
+  readline-7.0:
+    - headers
+
+# Source
+source:
+  tar.gz: http://www.sqlite.org/2017/{pkg_name}-autoconf-3180000.tar.gz
+
+# Build stage
+build:
+  - GLLVM_CONFIGURE_ONLY=1
+    CC=gclang
+    CFLAGS="-static"
+    ./configure
+    --prefix={__INSTALL_DIR__}
+    --enable-shared=no
+  - make
+  - make install

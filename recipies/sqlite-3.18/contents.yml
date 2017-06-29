@@ -1,0 +1,12 @@
+bin:
+  - /usr/bin/sqlite3
+
+headers:
+  - /usr/include/sqlite3.h
+  - /usr/include/sqlite3ext.h
+
+libs:
+  - /usr/lib/libsqlite3.a
+
+bc:
+  - /usr/bc

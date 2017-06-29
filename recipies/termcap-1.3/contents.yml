@@ -1,0 +1,8 @@
+headers:
+  - /usr/include/termcap.h
+
+libs:
+  - /usr/lib/libtermcap.a
+
+bc:
+  - /usr/bc

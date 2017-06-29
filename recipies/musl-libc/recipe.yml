@@ -1,0 +1,31 @@
+revision: 1
+
+# Dependencies
+dependencies:
+
+# Source
+source:
+  git: https://github.com/SRI-CSL/musllvm.git
+
+# Additional resources to put into build directory
+resources:
+  - muldc3.o.bc
+  - mulsc3.o.bc
+  - mulxc3.o.bc
+
+# Prepare stage
+prepare:
+  - gclang -c -o muldc3.o muldc3.o.bc
+  - gclang -c -o mulsc3.o mulsc3.o.bc
+  - gclang -c -o mulxc3.o mulxc3.o.bc
+
+# Build stage
+build:
+  - GLLVM_CONFIGURE_ONLY=1
+    CC=gclang
+    AR=llvm-ar
+    ./configure
+    --target=LLVM --build=LLVM
+    --prefix={__INSTALL_DIR__}
+  - make LDFLAGS="-Wl,/build/muldc3.o,/build/mulsc3.o,/build/mulxc3.o"
+  - make install

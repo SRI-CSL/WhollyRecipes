@@ -1,0 +1,40 @@
+variables:
+  - pkgname: pcre
+  - pkgver: '8.40'
+
+revision: 1
+
+# Dependencies
+dependencies:
+  musl-libc:
+    - headers
+    - libs
+  libcxx-4.0:
+    - headers
+    - libs
+  readline-7.0:
+    - libs
+    - headers
+  termcap-1.3:
+    - headers
+    - libs
+  zlib-1.2:
+    - headers
+    - libs
+  bzip2-1.0:
+    - headers
+    - libs
+
+# Source
+source:
+  tar.bz2: ftp://ftp.csx.cam.ac.uk/pub/software/programming/{pkgname}/{pkgname}-{pkgver}.tar.bz2
+
+# Build stage
+build:
+  - CC=gclang CXX=gclang++
+    GLLVM_CONFIGURE_ONLY=1
+    ./configure
+    --prefix={__INSTALL_DIR__}
+    --enable-jit --enable-unicode-properties --enable-pcre16 --enable-pcre32 --enable-pcregrep-libz --enable-pcregrep-libbz2 --enable-pcretest-libreadline --enable-static --disable-shared
+  - make CC=gclang CXX=gclang++
+  - make install

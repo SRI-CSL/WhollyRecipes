@@ -1,0 +1,70 @@
+variables:
+  - pkg_name: python
+  - pkg_ver: '2.7.13'
+
+revision: 1
+
+# Dependencies
+dependencies:
+  musl-libc:
+    - headers
+    - libs
+  expat-2.2:
+    - headers
+    - libs
+  zlib-1.2:
+    - headers
+    - libs
+  bzip2-1.0:
+    - headers
+    - libs
+  openssl-1.1:
+    - headers
+    - libs
+  ncurses-6.0:
+    - headers
+    - libs
+  readline-7.0:
+    - headers
+    - libs
+  gdbm-1.13:
+    - headers
+    - libs
+  sqlite-3.18:
+    - headers
+    - libs
+  libffi-3.2:
+    - headers
+    - libs
+  termcap-1.3:
+    - headers
+    - libs
+
+# Additional resources to put into build directory
+resources:
+  - Setup.local
+
+# Source
+source:
+  tgz: https://www.python.org/ftp/{pkg_name}/{pkg_ver}/Python-{pkg_ver}.tgz
+
+prepare:
+  - apk add linux-headers
+
+# Build stage
+build:
+  - GLLVM_CONFIGURE_ONLY=1
+    CC=gclang
+    LDFLAGS="-static -v -I/usr/include -L/usr/lib"
+    CPPFLAGS="-I/usr/include"
+    INCLUDEDIR="/usr/include"
+    PKG_CONFIG_LIBDIR="/usr/lib"
+    ./configure
+    --prefix={__INSTALL_DIR__}
+    --disable-shared
+    --without-gcc
+  - cp ../Setup.local Modules
+  - sed -i 's/\#include "datetime.h"/\#ifdef Py_BUILD_CORE\n\#undef Py_BUILD_CORE\n\#include "datetime.h"\n\#define Py_BUILD_CORE\n\#else\n\#include "datetime.h"\n\#endif\n/' Modules/_testcapimodule.c
+  - sed -i 's/\*=\*)\tDEFS="$line$NL$DEFS"; continue;;/[[:alpha:]]*=*) DEFS="$line$NL$DEFS"; continue;;/' Modules/makesetup
+  - make LDFLAGS="-static" LINKFORSHARED=" " -j{__NB_CORES__}
+  - make install

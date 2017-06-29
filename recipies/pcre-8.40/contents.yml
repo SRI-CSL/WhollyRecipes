@@ -1,0 +1,22 @@
+bin:
+  - /usr/bin/pcre-config
+  - /usr/bin/pcregrep
+  - /usr/bin/pcretest
+
+headers:
+  - /usr/include/pcre.h
+  - /usr/include/pcre_scanner.h
+  - /usr/include/pcre_stringpiece.h
+  - /usr/include/pcrecpp.h
+  - /usr/include/pcrecpparg.h
+  - /usr/include/pcreposix.h
+
+libs:
+  - /usr/lib/libpcre.a
+  - /usr/lib/libpcre16.a
+  - /usr/lib/libpcre32.a
+  - /usr/lib/libpcrecpp.a
+  - /usr/lib/libpcreposix.a
+
+bc:
+  - /usr/bc

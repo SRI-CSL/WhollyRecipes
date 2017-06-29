@@ -1,0 +1,70 @@
+#!/bin/sh
+
+
+#
+# Define some variables
+#
+cc="clang"
+libc="/usr"
+libc_inc="/usr/include"
+libc_lib="/usr/lib"
+thisdir="`cd "$(dirname "$0")"; pwd`"
+
+#
+# prevent clang from running the linker (and erroring) on no input.
+# Checking if -l or -c are passed to clang
+#
+
+sflags=
+eflags=
+compiling=
+linking=
+for x ; do
+    case "$x" in
+        -l*) linking=1 ;;
+	      -c*) compiling=1 ;;
+        *) linking= ;;
+    esac
+    if test "$linking" ; then
+        sflags="-l-user-start"
+        eflags="-l-user-end"
+        break
+    fi
+done
+
+
+#
+# Actual call to clang based on whether -c is passed or not
+#
+
+
+if test "$compiling" ; then
+    exec $cc \
+	-I"$thisdir" \
+	-nostdlib \
+	-nostdinc \
+	--sysroot "$libc" \
+	-isystem "$libc_inc" \
+	$sflags \
+	"$@" \
+	$eflags
+
+else
+    exec $cc \
+        -I"$thisdir" \
+        -fuse-ld=musl-clang \
+        -nostdlib \
+        --sysroot "$libc" \
+        -isystem "$libc_inc" \
+        -L-user-start \
+        $sflags \
+        "$@" \
+        $eflags \
+        -L"$libc_lib" \
+        -L-user-end
+fi
+
+
+#
+# if not compiling and not linking, then -nostdinc might not be needed
+#

@@ -1,0 +1,20 @@
+variables:
+  - pkg_name: bzip2
+  - pkg_ver: '1.0.6'
+
+revision: 1
+
+# Dependencies
+dependencies:
+  musl-libc:
+    - headers
+    - libs
+
+# Source
+source:
+  tar.gz: http://www.bzip.org/{pkg_ver}/{pkg_name}-{pkg_ver}.tar.gz
+
+# Build stage
+build:
+  - make CC=gclang LDFLAGS="-static"
+  - make install PREFIX={__INSTALL_DIR__}

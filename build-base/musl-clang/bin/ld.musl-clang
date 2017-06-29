@@ -1,0 +1,78 @@
+#!/bin/sh
+cc="clang"
+libc_lib="/usr/lib"
+cleared=
+shared=
+userlinkdir=
+userlink=
+cpp_dso_fix=
+exportdyn=
+
+for x ; do
+    test "$cleared" || set -- ; cleared=1
+
+    case "$x" in
+        -L-user-start)
+            userlinkdir=1
+            ;;
+        -L-user-end)
+            userlinkdir=
+            ;;
+        -L*)
+            test "$userlinkdir" && set -- "$@" "$x"
+            ;;
+        -l-user-start)
+            userlink=1
+            ;;
+        -l-user-end)
+            userlink=
+            ;;
+        crtbegin*.o|crtend*.o)
+            set -- "$@" $($cc -print-file-name=$x)
+            ;;
+        -lgcc|-lgcc_eh)
+            file=lib${x#-l}.a
+            set -- "$@" $($cc -print-file-name=$file)
+            ;;
+        -l*)
+            test "$userlink" && set -- "$@" "$x"
+            ;;
+        -shared)
+            shared=1
+            set -- "$@" -shared
+            ;;
+        -static)
+            shared=0
+            set -- "$@" -static
+            ;;
+        --export-dynamic)
+            exportdyn=1
+            ;;
+        -sysroot=*|--sysroot=*)
+            ;;
+        *)
+            set -- "$@" "$x"
+            ;;
+    esac
+done
+
+if [ $shared != 0 ]; then
+    if [ $exportdyn = 1 ]; then
+        set -- "$@" --export-dynamic
+    fi
+fi
+
+cpp_libs=
+c_libs=
+c_obj=
+if [ -f "$libc_lib/libc++.a" ]; then
+    cpp_libs="-lc++ -lc++abi -lunwind"
+    cpp_dso_fix="--defsym __dso_handle=0"
+fi
+if [ -f "$libc_lib/libc.a" ]; then
+    c_libs="-L$libc_lib -lc"
+    c_obj="$libc_lib/crt1.o"
+fi
+
+echo "$($cc -print-prog-name=ld) -nostdlib $cpp_dso_fix $c_obj $@ $cpp_libs $c_libs"
+exec $($cc -print-prog-name=ld) -nostdlib $cpp_dso_fix $c_obj "$@" $cpp_libs $c_libs

@@ -1,0 +1,25 @@
+variables:
+  - pkg_name: termcap
+  - pkg_ver: '1.3.1'
+
+revision: 1
+
+# Dependencies
+dependencies:
+  musl-libc:
+    - headers
+    - libs
+
+# Source
+source:
+  tar.gz: https://ftp.gnu.org/gnu/{pkg_name}/{pkg_name}-{pkg_ver}.tar.gz
+
+# Build stage
+build:
+  - GLLVM_CONFIGURE_ONLY=1
+    CC=gclang
+    ./configure
+    --prefix={__INSTALL_DIR__}
+    --enable-shared=no
+  - make
+  - make install

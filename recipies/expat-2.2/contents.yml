@@ -1,0 +1,13 @@
+bin:
+  - /usr/bin/xmlwf
+
+headers:
+  - /usr/include/expat.h
+  - /usr/include/expat_config.h
+  - /usr/include/expat_external.h
+
+libs:
+  - /usr/lib/libexpat.a
+
+bc:
+  - /usr/bc

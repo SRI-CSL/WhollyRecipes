@@ -1,0 +1,9 @@
+headers:
+  - /usr/include/ffi.h
+  - /usr/include/ffitarget.h
+
+libs:
+  - /usr/lib/libffi.a
+
+bc:
+  - /usr/bc

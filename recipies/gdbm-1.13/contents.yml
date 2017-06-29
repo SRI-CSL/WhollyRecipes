@@ -1,0 +1,17 @@
+bin:
+  - /usr/bin/gdbm_dump
+  - /usr/bin/gdbm_load
+  - /usr/bin/gdbmtool
+
+headers:
+  - /usr/include/dbm.h
+  - /usr/include/gdbm.h
+  - /usr/include/ndbm.h
+  - /usr/include/gdbm/ndbm.h
+
+libs:
+  - /usr/lib/libgdbm.a
+  - /usr/lib/libgdbm_compat.a
+
+bc:
+  - /usr/bc

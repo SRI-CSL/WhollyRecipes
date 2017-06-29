@@ -1,0 +1,66 @@
+*static*
+
+readline readline.c -lreadline -Wl,--start-group,-lncurses,-ltermcap,--end-group
+array arraymodule.c
+cmath cmathmodule.c _math.c
+math mathmodule.c _math.c
+_struct _struct.c
+time timemodule.c
+operator operator.c
+_testcapi _testcapimodule.c
+_random _randommodule.c
+_collections _collectionsmodule.c
+_heapq _heapqmodule.c
+itertools itertoolsmodule.c
+strop stropmodule.c
+_functools _functoolsmodule.c
+_elementtree -I$(srcdir)/Modules/expat -DHAVE_EXPAT_CONFIG_H -DUSE_PYEXPAT_CAPI _elementtree.c
+#_pickle _pickle.c
+datetime datetimemodule.c
+_bisect _bisectmodule.c
+unicodedata unicodedata.c
+_locale _localemodule.c
+_io -I$(srcdir)/Modules/_io _io/bufferedio.c _io/bytesio.c _io/fileio.c _io/iobase.c _io/_iomodule.c _io/stringio.c _io/textio.c
+fcntl fcntlmodule.c
+spwd spwdmodule.c
+grp grpmodule.c
+select selectmodule.c
+mmap mmapmodule.c
+_csv _csv.c
+_ssl _ssl.c -DUSE_SSL -I/static/include -I/static/include/openssl -L/static/lib -lssl -lcrypto
+timing timingmodule.c
+syslog syslogmodule.c		# syslog daemon interface
+_curses _cursesmodule.c -I/static/include/ncurses
+_curses_panel _curses_panel.c -I/static/include/ncurses -lpanel -lncurses
+gdbm gdbmmodule.c -I/static/include -L/static/lib -lgdbm_compat -lgdbm
+binascii binascii.c
+parser parsermodule.c
+cStringIO cStringIO.c
+cPickle cPickle.c
+zlib zlibmodule.c -I/static/include -L/static/lib -lz
+_json _json.c
+_hashlib _hashopenssl.c
+_socket socketmodule.c timemodule.c -IModules
+_ctypes _ctypes/_ctypes.c _ctypes/callbacks.c _ctypes/callproc.c _ctypes/stgdict.c _ctypes/cfield.c -IModules/_ctypes -lffi
+_ctypes_test _ctypes/_ctypes_test.c
+_sqlite3 _sqlite/cache.c _sqlite/connection.c _sqlite/cursor.c _sqlite/microprotocols.c _sqlite/module.c _sqlite/prepare_protocol.c _sqlite/row.c _sqlite/statement.c _sqlite/util.c -DMODULE_NAME='"sqlite3"' -DSQLITE_OMIT_LOAD_EXTENSION='1' -IModules/_sqlite -lsqlite3
+pyexpat pyexpat.c -lexpat
+bz2 bz2module.c -lbz2
+termios termios.c
+resource resource.c
+crypt cryptmodule.c
+audioop audioop.c
+future_builtins future_builtins.c
+_multibytecodec cjkcodecs/multibytecodec.c
+_codecs_kr cjkcodecs/_codecs_kr.c
+_codecs_jp cjkcodecs/_codecs_jp.c
+_codecs_cn cjkcodecs/_codecs_cn.c
+_codecs_tw cjkcodecs/_codecs_tw.c
+_codecs_hk cjkcodecs/_codecs_hk.c
+_codecs_iso2022 cjkcodecs/_codecs_iso2022.c
+_hotshot _hotshot.c
+_lsprof _lsprof.c rotatingtree.c
+_multiprocessing _multiprocessing/multiprocessing.c _multiprocessing/socket_connection.c _multiprocessing/semaphore.c -IModules/_multiprocessing
+linuxaudiodev linuxaudiodev.c
+ossaudiodev ossaudiodev.c
+dbm dbmmodule.c -DHAVE_GDBM_NDBM_H
