@@ -23,7 +23,6 @@ prepare:
 build:
   - GLLVM_CONFIGURE_ONLY=1
     CC=gclang
-    AR=llvm-ar
     ./configure
     --target=LLVM --build=LLVM
     --prefix={__INSTALL_DIR__}

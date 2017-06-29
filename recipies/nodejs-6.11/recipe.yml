@@ -1,0 +1,44 @@
+variables:
+  - pkg_name: node
+  - pkg_ver: '6.11.0'
+
+revision: 1
+
+# Dependencies
+dependencies:
+    musl-libc:
+        - headers
+        - libs
+    libcxx-4.0:
+        - headers
+        - libs
+    python-2.7:
+        - rtlibs
+        - bin
+    openssl-1.0:
+        - rt
+
+prepare:
+  - apk add linux-headers
+
+# Source
+source:
+  tar.gz: https://nodejs.org/dist/v{pkg_ver}/{pkg_name}-v{pkg_ver}.tar.gz
+
+resources:
+  - common.gypi
+
+# Build stage
+build:
+  # Patch common.gypi for rdynamic flag
+  - cp ../common.gypi ./
+  - CC=gclang
+    CXX=gclang++
+    ./configure
+    --fully-static
+    --enable-static
+    --openssl-no-asm
+    --with-intl=full-icu
+    --download=all
+  - make
+  - make install

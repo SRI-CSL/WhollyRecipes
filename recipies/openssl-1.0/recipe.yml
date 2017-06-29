@@ -1,6 +1,6 @@
 variables:
   - pkg_name: openssl
-  - pkg_ver: '1.1.0e'
+  - pkg_ver: '1.0.2l'
 
 revision: 1
 
@@ -20,6 +20,6 @@ source:
 # Build stage
 build:
   - CC=gclang
-    ./Configure no-async no-asm -static -I/usr/include --prefix={__INSTALL_DIR__} linux-x86_64-clang
-  - make CC=gclang
+    ./Configure no-asm -static -I/usr/include --prefix={__INSTALL_DIR__} linux-x86_64-clang
+  - make CC=gclang -j{__NB_CORES__}
   - make install

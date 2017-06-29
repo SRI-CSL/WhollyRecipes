@@ -27,17 +27,17 @@ grp grpmodule.c
 select selectmodule.c
 mmap mmapmodule.c
 _csv _csv.c
-_ssl _ssl.c -DUSE_SSL -I/static/include -I/static/include/openssl -L/static/lib -lssl -lcrypto
+_ssl _ssl.c -DUSE_SSL -I/usr/include -I/usr/include/openssl -L/usr/lib -lssl -lcrypto
 timing timingmodule.c
 syslog syslogmodule.c		# syslog daemon interface
-_curses _cursesmodule.c -I/static/include/ncurses
-_curses_panel _curses_panel.c -I/static/include/ncurses -lpanel -lncurses
-gdbm gdbmmodule.c -I/static/include -L/static/lib -lgdbm_compat -lgdbm
+_curses _cursesmodule.c -I/usr/include/ncurses
+_curses_panel _curses_panel.c -I/usr/include/ncurses -lpanel -lncurses
+gdbm gdbmmodule.c -I/usr/include -L/usr/lib -lgdbm_compat -lgdbm
 binascii binascii.c
 parser parsermodule.c
 cStringIO cStringIO.c
 cPickle cPickle.c
-zlib zlibmodule.c -I/static/include -L/static/lib -lz
+zlib zlibmodule.c -I/usr/include -L/usr/lib -lz
 _json _json.c
 _hashlib _hashopenssl.c
 _socket socketmodule.c timemodule.c -IModules
