@@ -20,10 +20,9 @@ RUN ln -s /tools/bin/clang-4.0 /tools/bin/clang-cpp
 
 # Install gllvm
 RUN apk add go musl-dev
-WORKDIR /root/go/src
-RUN git clone https://github.com/SRI-CSL/gllvm
-WORKDIR gllvm
-RUN make install
+RUN go get github.com/SRI-CSL/gllvm/cmd/gclang
+RUN go get github.com/SRI-CSL/gllvm/cmd/gclang++
+RUN go get github.com/SRI-CSL/gllvm/cmd/get-bc
 RUN apk del go musl-dev
 
 # Install tools

@@ -1,0 +1,28 @@
+variables:
+    - pkg_name: libressl
+    - pkg_ver: '2.5.4'
+
+revision: 1
+
+# Dependencies
+dependencies:
+    musl-libc:
+        - headers
+        - libs
+
+prepare:
+    - apk add linux-headers
+
+# Source
+source:
+    tar.gz: http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/{pkg_name}-{pkg_ver}.tar.gz
+
+# Build stage
+build:
+    - GLLVM_CONFIGURE_ONLY=1
+        CC=gclang
+        ./configure
+        --prefix={__INSTALL_DIR__}
+        --disable-shared
+    - make -j{__NB_CORES__}
+    - make install

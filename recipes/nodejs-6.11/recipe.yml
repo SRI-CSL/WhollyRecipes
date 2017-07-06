@@ -12,14 +12,11 @@ dependencies:
     libcxx-4.0:
         - headers
         - libs
-    python-2.7:
-        - rtlibs
-        - bin
     openssl-1.0:
         - rt
 
 prepare:
-  - apk add linux-headers
+  - apk add linux-headers python2
 
 # Source
 source:
@@ -38,7 +35,6 @@ build:
     --fully-static
     --enable-static
     --openssl-no-asm
-    --with-intl=full-icu
-    --download=all
-  - make
-  - make install
+    --with-intl=small-icu
+  - make -j{__NB_CORES__}
+  - make DESTDIR={__INSTALL_DIR__} install

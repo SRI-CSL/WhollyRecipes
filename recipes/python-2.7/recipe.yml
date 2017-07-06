@@ -18,7 +18,7 @@ dependencies:
   bzip2-1.0:
     - headers
     - libs
-  openssl-1.0:
+  libressl-2.5:
     - headers
     - libs
   ncurses-6.0:
