@@ -45,7 +45,7 @@ for x ; do
             shared=0
             set -- "$@" -static
             ;;
-        --export-dynamic)
+        --export-dynamic|-E)
             exportdyn=1
             ;;
         -sysroot=*|--sysroot=*)

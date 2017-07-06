@@ -31,9 +31,9 @@ build:
   - GLLVM_CONFIGURE_ONLY=1
     CC=gclang ./configure
     --prefix={__INSTALL_DIR__}
+    --sbin-path={__INSTALL_DIR__}/bin/nginx
     --with-cc-opt="-static -Wno-sign-compare"
     --with-ld-opt="-static" --with-cpu-opt=generic --with-pcre
-    --sbin-path={__INSTALL_DIR__}/bin/nginx
     --with-mail --with-ipv6 --with-poll_module --with-select_module
     --with-http_ssl_module
     --with-http_gzip_static_module --with-http_auth_request_module
