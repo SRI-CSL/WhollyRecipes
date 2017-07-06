@@ -1,0 +1,29 @@
+variables:
+  - pkg_name: libuv
+  - pkg_ver: '1.11.0'
+
+revision: 1
+
+# Dependencies
+dependencies:
+  musl-libc:
+    - headers
+    - libs
+
+prepare:
+  - apk add automake libtool m4 autoconf
+
+# Source
+source:
+  tar.gz: http://dist.libuv.org/dist/v{pkg_ver}/{pkg_name}-v{pkg_ver}.tar.gz
+
+# Build stage
+build:
+  - sh autogen.sh
+  - GLLVM_CONFIGURE_ONLY=1
+    CC=gclang
+    ./configure
+    --prefix={__INSTALL_DIR__}
+    --enable-shared=no
+  - make
+  - make BUILDTYPE=Release install

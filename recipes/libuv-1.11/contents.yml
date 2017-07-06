@@ -1,0 +1,10 @@
+libs:
+  - /usr/lib/libuv.a
+
+headers:
+  - /usr/include/uv-errno.h
+  - /usr/include/uv-linux.h
+  - /usr/include/uv-threadpool.h
+  - /usr/include/uv-unix.h
+  - /usr/include/uv-version.h
+  - /usr/include/uv.h
