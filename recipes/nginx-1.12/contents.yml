@@ -1,0 +1,26 @@
+bin:
+  - /usr/bin/nginx
+
+conf:
+  - /usr/conf/
+  - /usr/conf/fastcgi.conf
+  - /usr/conf/fastcgi.conf.default
+  - /usr/conf/fastcgi_params
+  - /usr/conf/fastcgi_params.default
+  - /usr/conf/koi-utf
+  - /usr/conf/koi-win
+  - /usr/conf/mime.types
+  - /usr/conf/mime.types.default
+  - /usr/conf/nginx.conf
+  - /usr/conf/nginx.conf.default
+  - /usr/conf/scgi_params
+  - /usr/conf/scgi_params.default
+  - /usr/conf/uwsgi_params
+  - /usr/conf/uwsgi_params.default
+  - /usr/conf/win-utf
+
+rt:
+  - /usr/html/
+  - /usr/html/50x.html
+  - /usr/html/index.html
+  - /usr/logs/
