@@ -23,4 +23,4 @@ rt:
   - /usr/html/
   - /usr/html/50x.html
   - /usr/html/index.html
-  - /usr/logs/
+  - /var/log/nginx/
