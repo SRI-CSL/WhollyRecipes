@@ -273,6 +273,7 @@
       [ 'OS in "linux freebsd openbsd solaris android aix"', {
         'cflags': [ '-Wall', '-Wextra', '-Wno-unused-parameter', ],
         'cflags_cc': [ '-fno-rtti', '-fno-exceptions', '-std=gnu++0x' ],
+        'ldflags': [  ],
         'target_conditions': [
           # The 1990s toolchain on SmartOS can't handle thin archives.
           ['_type=="static_library" and OS=="solaris"', {

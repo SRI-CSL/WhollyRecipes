@@ -12,8 +12,12 @@ dependencies:
     libcxx-4.0:
         - headers
         - libs
-    openssl-1.0:
-        - rt
+    zlib-1.2:
+        - headers
+        - libs
+    libuv-1.11:
+        - headers
+        - libs
 
 prepare:
   - apk add linux-headers python2
@@ -29,12 +33,15 @@ resources:
 build:
   # Patch common.gypi for rdynamic flag
   - cp ../common.gypi ./
-  - CC=gclang
+  - GLLVM_CONFIGURE_ONLY=1
+    CC=gclang
     CXX=gclang++
     ./configure
+    --prefix={__INSTALL_DIR__}
     --fully-static
-    --enable-static
-    --openssl-no-asm
-    --with-intl=small-icu
+    --shared-libuv
+    --shared-zlib
+    --with-intl=full-icu
+    --download=all
   - make -j{__NB_CORES__}
-  - make DESTDIR={__INSTALL_DIR__} install
+  - make install
