@@ -1,0 +1,68 @@
+variables:
+  - pkg_name: clang
+  - pkg_ver: '4.0.0'
+
+revision: 1
+
+# Dependencies
+dependencies:
+    musl-libc:
+        - headers
+        - libs
+    libcxx-4.0:
+        - headers
+        - libs
+
+prepare:
+    - apk add cmake
+
+# Source
+source:
+    tar.gz: http://releases.llvm.org/{pkg_ver}/llvm-{pkg_ver}.src.tar.xz
+
+resources:
+    - llvm_fix_dynamic_library_musl.patch
+    - llvm_fix_targetlibraryinfo_header_musl.patch
+    - cmake_fix_no_dynlinker_build.patch
+
+# Build stage
+build:
+    # Download required sources
+    - cd tools &&
+        curl "http://releases.llvm.org/{pkg_ver}/cfe-{pkg_ver}.src.tar.xz" -o clang.tar.xz &&
+        mkdir clang && tar xf clang.tar.xz -C clang --strip-components 1 &&
+        cd ..
+    # Patch source files
+    - cd lib &&
+        patch -p1 < ../../llvm_fix_dynamic_library_musl.patch &&
+        cd .. &&
+        cd cmake &&
+        patch -p1 < ../../cmake_fix_no_dynlinker_build.patch &&
+        cd .. &&
+        patch -p1 < ../llvm_fix_targetlibraryinfo_header_musl.patch
+    # Build clang+llvm
+    - mkdir build &&
+        cd build &&
+        WLLVM_CONFIGURE_ONLY=1 cmake -Wno-dev
+        -DCMAKE_C_COMPILER=musl-clang
+        -DCMAKE_CXX_COMPILER=musl-clang++
+        -DCMAKE_BUILD_TYPE=Release
+        -DCMAKE_C_FLAGS="-v -I/usr/include/c++/v1 -I{__SRC_DIR__}/tools/clang/lib/Headers"
+        -DCMAKE_CXX_FLAGS="-v -I/usr/include/c++/v1 -I{__SRC_DIR__}/tools/clang/lib/Headers"
+        -DCMAKE_INSTALL_PREFIX={__INSTALL_DIR__}
+        -DCMAKE_EXE_LINKER_FLAGS="-Wl,--defsym,__dso_handle=0"
+        -DCMAKE_SHARED_LINKER_FLAGS="-Wl,--defsym,__dso_handle=0"
+        -DLLVM_BUILD_STATIC=ON
+        -DLLVM_BUILD_EXAMPLES=OFF
+        -DLLVM_INCLUDE_EXAMPLES=OFF
+        -DLLVM_BUILD_TESTS=OFF
+        -DLLVM_INCLUDE_TESTS=OFF
+        -DCLANG_PLUGIN_SUPPORT=ON
+        -DLIBCLANG_BUILD_STATIC=ON
+        -DLLVM_ENABLE_EH=ON
+        -DLLVM_ENABLE_RTTI=ON
+        .. &&
+        make -j{__NB_CORES__} &&
+        cd ..
+    - cd build &&
+        make install

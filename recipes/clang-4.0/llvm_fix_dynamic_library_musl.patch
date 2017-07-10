@@ -1,0 +1,17 @@
+diff -uNr lib/Support/DynamicLibrary.cpp lib.patched/Support/DynamicLibrary.cpp
+--- lib/Support/DynamicLibrary.cpp	2016-11-30 07:34:29.000000000 -0800
++++ lib.patched/Support/DynamicLibrary.cpp	2017-05-26 13:11:03.000000000 -0700
+@@ -143,7 +143,7 @@
+ // On linux we have a weird situation. The stderr/out/in symbols are both
+ // macros and global variables because of standards requirements. So, we
+ // boldly use the EXPLICIT_SYMBOL macro without checking for a #define first.
+-#if defined(__linux__) and !defined(__ANDROID__)
++#if defined(__GLIBC__)
+   {
+     EXPLICIT_SYMBOL(stderr);
+     EXPLICIT_SYMBOL(stdout);
+@@ -186,4 +186,3 @@
+ void LLVMAddSymbol(const char *symbolName, void *symbolValue) {
+   return llvm::sys::DynamicLibrary::AddSymbol(symbolName, symbolValue);
+ }
+-

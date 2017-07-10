@@ -1,0 +1,32 @@
+diff -uNr cmake/modules/AddLLVM.cmake cmake.patched/modules/AddLLVM.cmake
+--- cmake/modules/AddLLVM.cmake	2017-01-17 13:47:58.000000000 -0800
++++ cmake.patched/modules/AddLLVM.cmake	2017-06-05 08:40:55.000000000 -0700
+@@ -671,7 +671,7 @@
+     # it forces Xcode to properly link the static library.
+     list(APPEND ALL_FILES "${LLVM_MAIN_SRC_DIR}/cmake/dummy.cpp")
+   endif()
+-  
++
+   if( EXCLUDE_FROM_ALL )
+     add_executable(${name} EXCLUDE_FROM_ALL ${ALL_FILES})
+   else()
+@@ -1314,7 +1314,7 @@
+   # magic. First we grab one of the types, and a type-specific path. Then from
+   # the type-specific path we find the last occurrence of the type in the path,
+   # and replace it with CMAKE_CFG_INTDIR. This allows the build step to be type
+-  # agnostic again. 
++  # agnostic again.
+   if(NOT ARG_OUTPUT_DIR)
+     # If you're not overriding the OUTPUT_DIR, we can make the link relative in
+     # the same directory.
+@@ -1426,10 +1426,6 @@
+     if(${CMAKE_SYSTEM_NAME} MATCHES "(FreeBSD|DragonFly)")
+       set_property(TARGET ${name} APPEND_STRING PROPERTY
+                    LINK_FLAGS " -Wl,-z,origin ")
+-    elseif(${CMAKE_SYSTEM_NAME} STREQUAL "Linux" AND NOT LLVM_LINKER_IS_GOLD)
+-      # $ORIGIN is not interpreted at link time by ld.bfd
+-      set_property(TARGET ${name} APPEND_STRING PROPERTY
+-                   LINK_FLAGS " -Wl,-rpath-link,${LLVM_LIBRARY_OUTPUT_INTDIR} ")
+     endif()
+   else()
+     return()
