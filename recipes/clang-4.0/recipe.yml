@@ -9,18 +9,21 @@ dependencies:
     musl-libc:
         - headers
         - libs
+        - rtlibs
     libcxx-4.0:
         - headers
         - libs
 
 prepare:
-    - apk add cmake
+    - apk add cmake python2 linux-headers
 
 # Source
 source:
     tar.gz: http://releases.llvm.org/{pkg_ver}/llvm-{pkg_ver}.src.tar.xz
 
 resources:
+    - interception_linux.h
+    - compiler_rt_sanitizers_musl_fix.patch
     - llvm_fix_dynamic_library_musl.patch
     - llvm_fix_targetlibraryinfo_header_musl.patch
     - cmake_fix_no_dynlinker_build.patch
@@ -32,7 +35,14 @@ build:
         curl "http://releases.llvm.org/{pkg_ver}/cfe-{pkg_ver}.src.tar.xz" -o clang.tar.xz &&
         mkdir clang && tar xf clang.tar.xz -C clang --strip-components 1 &&
         cd ..
+    - cd projects &&
+        curl "http://releases.llvm.org/{pkg_ver}/compiler-rt-{pkg_ver}.src.tar.xz" -o compiler-rt.tar.xz &&
+        mkdir compiler-rt && tar xf compiler-rt.tar.xz -C compiler-rt --strip-components 1 &&
+        cd ..
     # Patch source files
+    - cd projects/compiler-rt &&
+        patch -p1 < ../../../compiler_rt_sanitizers_musl_fix.patch &&
+        cd ..
     - cd lib &&
         patch -p1 < ../../llvm_fix_dynamic_library_musl.patch &&
         cd .. &&
@@ -40,15 +50,16 @@ build:
         patch -p1 < ../../cmake_fix_no_dynlinker_build.patch &&
         cd .. &&
         patch -p1 < ../llvm_fix_targetlibraryinfo_header_musl.patch
+    - cp ../interception_linux.h projects/compiler-rt/lib/interception
     # Build clang+llvm
     - mkdir build &&
         cd build &&
-        WLLVM_CONFIGURE_ONLY=1 cmake -Wno-dev
+        cmake -Wno-dev
         -DCMAKE_C_COMPILER=musl-clang
         -DCMAKE_CXX_COMPILER=musl-clang++
         -DCMAKE_BUILD_TYPE=Release
-        -DCMAKE_C_FLAGS="-v -I/usr/include/c++/v1 -I{__SRC_DIR__}/tools/clang/lib/Headers"
-        -DCMAKE_CXX_FLAGS="-v -I/usr/include/c++/v1 -I{__SRC_DIR__}/tools/clang/lib/Headers"
+        -DCMAKE_C_FLAGS="-I/usr/include/c++/v1 -I{__SRC_DIR__}/tools/clang/lib/Headers"
+        -DCMAKE_CXX_FLAGS="-I/usr/include/c++/v1 -I{__SRC_DIR__}/tools/clang/lib/Headers"
         -DCMAKE_INSTALL_PREFIX={__INSTALL_DIR__}
         -DCMAKE_EXE_LINKER_FLAGS="-Wl,--defsym,__dso_handle=0"
         -DCMAKE_SHARED_LINKER_FLAGS="-Wl,--defsym,__dso_handle=0"
@@ -61,6 +72,9 @@ build:
         -DLIBCLANG_BUILD_STATIC=ON
         -DLLVM_ENABLE_EH=ON
         -DLLVM_ENABLE_RTTI=ON
+        -DCOMPILER_RT_BUILD_XRAY=ON
+        -DCOMPILER_RT_BUILD_SANITIZERS=ON
+        -DCOMPILER_RT_BUILD_BUILTINS=OFF
         .. &&
         make -j{__NB_CORES__} &&
         cd ..

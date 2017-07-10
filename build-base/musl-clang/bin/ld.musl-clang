@@ -2,7 +2,7 @@
 cc="clang"
 libc_lib="/usr/lib"
 cleared=
-shared=
+shared=0
 userlinkdir=
 userlink=
 cpp_dso_fix=
@@ -71,7 +71,9 @@ if [ -f "$libc_lib/libc++.a" ]; then
 fi
 if [ -f "$libc_lib/libc.a" ]; then
     c_libs="-L$libc_lib -lc"
-    c_obj="$libc_lib/crt1.o"
+    if [ $shared != 1 ]; then
+        c_obj="$libc_lib/crt1.o"
+    fi
 fi
 
 echo "$($cc -print-prog-name=ld) -nostdlib $cpp_dso_fix $c_obj $@ $cpp_libs $c_libs"
