@@ -1,6 +1,6 @@
 variables:
   - pkg_name: clang
-  - pkg_ver: '4.0.0'
+  - pkg_ver: '4.0.1'
 
 revision: 1
 
