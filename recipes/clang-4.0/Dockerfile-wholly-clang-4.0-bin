@@ -1,0 +1,10 @@
+FROM wholly-clang-4.0 as build
+
+COPY contents.tmp contents.tmp
+RUN mkdir -p /release
+RUN while read p; do strip "$p" || true; done < contents.tmp
+RUN while read p; do cp --parents -r "$p" /release; done < contents.tmp
+RUN rm contents.tmp
+FROM scratch
+
+COPY --from=build /release /

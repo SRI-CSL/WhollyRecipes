@@ -86,6 +86,7 @@ libs:
   - /usr/lib/clang/4.0.0/lib/linux/libclang_rt.asan-x86_64.a.syms
   - /usr/lib/clang/4.0.0/lib/linux/libclang_rt.asan_cxx-x86_64.a
   - /usr/lib/clang/4.0.0/lib/linux/libclang_rt.asan_cxx-x86_64.a.syms
+  - /usr/lib/clang/4.0.0/lib/linux/libclang_rt.builtins-x86_64.a
   - /usr/lib/clang/4.0.0/lib/linux/libclang_rt.cfi-x86_64.a
   - /usr/lib/clang/4.0.0/lib/linux/libclang_rt.cfi_diag-x86_64.a
   - /usr/lib/clang/4.0.0/lib/linux/libclang_rt.dd-x86_64.a
@@ -300,7 +301,7 @@ libs:
   - /usr/lib/libclangStaticAnalyzerFrontend.a
   - /usr/lib/libclangTooling.a
   - /usr/lib/libclangToolingCore.a
-
+  
 headers:
   - /usr/include/clang/
   - /usr/include/clang/ARCMigrate/
@@ -2000,7 +2001,6 @@ headers:
   - /usr/lib/clang/4.0.0/include/xsaveoptintrin.h
   - /usr/lib/clang/4.0.0/include/xsavesintrin.h
   - /usr/lib/clang/4.0.0/include/xtestintrin.h
-
 other:
   - /build/clang-4.0/build/install_manifest.txt
   - /usr/libexec/c++-analyzer
