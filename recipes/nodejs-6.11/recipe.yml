@@ -33,7 +33,7 @@ resources:
 build:
   # Patch common.gypi for rdynamic flag
   - cp ../common.gypi ./
-  - GLLVM_CONFIGURE_ONLY=1
+  - WLLVM_CONFIGURE_ONLY=1
     CC=gclang
     CXX=gclang++
     ./configure

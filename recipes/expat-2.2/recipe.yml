@@ -17,7 +17,7 @@ source:
 
 # Build stage
 build:
-  - GLLVM_CONFIGURE_ONLY=1
+  - WLLVM_CONFIGURE_ONLY=1
     CC=gclang
     LDFLAGS="-static"
     ./configure

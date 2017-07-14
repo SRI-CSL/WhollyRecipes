@@ -21,7 +21,7 @@ prepare:
 
 # Build stage
 build:
-  - GLLVM_CONFIGURE_ONLY=1
+  - WLLVM_CONFIGURE_ONLY=1
     CC=gclang
     ./configure
     --target=LLVM --build=LLVM

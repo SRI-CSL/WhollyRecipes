@@ -41,7 +41,7 @@ build:
   - cd libunwind &&
     mkdir build &&
     cd build &&
-    GLLVM_CONFIGURE_ONLY=1 cmake
+    WLLVM_CONFIGURE_ONLY=1 cmake
       -DCMAKE_C_COMPILER=gclang
       -DCMAKE_CXX_COMPILER=gclang++
       -DLIBUNWIND_ENABLE_SHARED=0
@@ -57,7 +57,7 @@ build:
   - cd libcxxabi &&
     mkdir build &&
     cd build &&
-    GLLVM_CONFIGURE_ONLY=1 cmake
+    WLLVM_CONFIGURE_ONLY=1 cmake
       -DCMAKE_C_COMPILER=gclang
       -DCMAKE_CXX_COMPILER=gclang++
       -DLLVM_PATH="../../llvm"

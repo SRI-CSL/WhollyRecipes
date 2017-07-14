@@ -20,7 +20,7 @@ source:
 # Build stage
 build:
   - sh autogen.sh
-  - GLLVM_CONFIGURE_ONLY=1
+  - WLLVM_CONFIGURE_ONLY=1
     CC=gclang
     ./configure
     --prefix={__INSTALL_DIR__}

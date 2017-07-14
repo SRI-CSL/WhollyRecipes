@@ -32,7 +32,7 @@ source:
 # Build stage
 build:
   - CC=gclang CXX=gclang++
-    GLLVM_CONFIGURE_ONLY=1
+    WLLVM_CONFIGURE_ONLY=1
     ./configure
     --prefix={__INSTALL_DIR__}
     --enable-jit --enable-unicode-properties --enable-pcre16 --enable-pcre32 --enable-pcregrep-libz --enable-pcregrep-libbz2 --enable-pcretest-libreadline --enable-static --disable-shared

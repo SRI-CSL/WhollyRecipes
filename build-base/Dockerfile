@@ -40,6 +40,6 @@ RUN mkdir -p /install
 
 # Static environment variables
 ENV PATH="/tools/bin:/root/go/bin:${PATH}"
-ENV GLLVM_CC_NAME musl-clang
-ENV GLLVM_CXX_NAME musl-clang++
-ENV GLLVM_BC_STORE /usr/bc
+ENV LLVM_CC_NAME musl-clang
+ENV LLVM_CXX_NAME musl-clang++
+ENV WLLVM_BC_STORE /usr/bc
