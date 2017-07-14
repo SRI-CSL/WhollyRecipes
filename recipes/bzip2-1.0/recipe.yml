@@ -2,8 +2,6 @@ variables:
   - pkg_name: bzip2
   - pkg_ver: '1.0.6'
 
-revision: 1
-
 # Dependencies
 dependencies:
   musl-libc:

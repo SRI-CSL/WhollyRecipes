@@ -2,8 +2,6 @@ variables:
   - pkg_name: ncurses
   - pkg_ver: '6.0'
 
-revision: 1
-
 # Dependencies
 dependencies:
   musl-libc:

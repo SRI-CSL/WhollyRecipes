@@ -2,8 +2,6 @@ variables:
   - pkg_name: zlib
   - pkg_ver: '1.2.11'
 
-revision: 1
-
 # Dependencies
 dependencies:
   musl-libc:

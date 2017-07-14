@@ -2,8 +2,6 @@ variables:
   - pkgname: pcre
   - pkgver: '8.40'
 
-revision: 1
-
 # Dependencies
 dependencies:
   musl-libc:

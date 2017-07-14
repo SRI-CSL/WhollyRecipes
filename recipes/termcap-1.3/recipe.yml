@@ -2,8 +2,6 @@ variables:
   - pkg_name: termcap
   - pkg_ver: '1.3.1'
 
-revision: 1
-
 # Dependencies
 dependencies:
   musl-libc:
