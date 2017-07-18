@@ -1,3 +1,5 @@
+release_date: 2017-07-18
+
 variables:
   - pkg_name: libcxx
   - pkg_ver: '4.0.1'
