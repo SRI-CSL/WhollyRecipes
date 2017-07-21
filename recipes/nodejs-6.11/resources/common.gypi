@@ -329,7 +329,7 @@
               }],
             ],
             'ldflags': [ '-Wl,-bbigtoc' ],
-            'ldflags!': [ '-rdynamic' ],
+            'ldflags!': [  ],
           }],
           [ 'node_shared=="true"', {
             'cflags': [ '-fPIC' ],

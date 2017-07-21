@@ -18,6 +18,9 @@ dependencies:
     libuv-1.11:
         - headers
         - libs
+    openssl-1.0:
+        - headers
+        - libs
 
 prepare:
   - apk add linux-headers python2
@@ -28,6 +31,7 @@ source:
 
 resources:
   - common.gypi
+  - config.gypi
 
 # Build stage
 build:
@@ -41,7 +45,10 @@ build:
     --fully-static
     --shared-libuv
     --shared-zlib
+    --shared-openssl
     --with-intl=full-icu
     --download=all
-  - make -j{__NB_CORES__}
+  # Patch config.gypi for right order between libssl and libcrypto
+  - cp ../config.gypi ./
+  - CC=gclang CXX=gclang++ make -j{__NB_CORES__}
   - make install
