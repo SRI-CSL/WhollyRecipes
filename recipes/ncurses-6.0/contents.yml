@@ -1,40 +1,45 @@
-bin:
-  - /usr/bin/captoinfo
-  - /usr/bin/clear
-  - /usr/bin/infocmp
-  - /usr/bin/infotocap
-  - /usr/bin/ncurses6-config
-  - /usr/bin/tabs
-  - /usr/bin/tic
-  - /usr/bin/toe
-  - /usr/bin/tput
-  - /usr/bin/tset
-
-headers:
-  - /usr/include/curses.h
-  - /usr/include/eti.h
-  - /usr/include/form.h
-  - /usr/include/menu.h
-  - /usr/include/nc_tparm.h
-  - /usr/include/ncurses.h
-  - /usr/include/ncurses_dll.h
-  - /usr/include/panel.h
-  - /usr/include/term.h
-  - /usr/include/term_entry.h
-  - /usr/include/termcap.h
-  - /usr/include/tic.h
-  - /usr/include/unctrl.h
-
-libs:
-  - /usr/lib/libcurses.a
-  - /usr/lib/libform.a
-  - /usr/lib/libform_g.a
-  - /usr/lib/libmenu.a
-  - /usr/lib/libmenu_g.a
-  - /usr/lib/libncurses.a
-  - /usr/lib/libncurses_g.a
-  - /usr/lib/libpanel.a
-  - /usr/lib/libpanel_g.a
-
 bc:
-  - /usr/bc
+    checksum: sha256:66ca37cb7650517125c2e98d55399d33c8ba216a87dcbcced38a69df1a57f9f4
+    files:
+    - /usr/bc
+bin:
+    checksum: sha256:eaff9f6f5b090222fba02b6eb6fb9445a631c175893df5cdca0a56a98be67cf8
+    files:
+    - /usr/bin/captoinfo
+    - /usr/bin/clear
+    - /usr/bin/infocmp
+    - /usr/bin/infotocap
+    - /usr/bin/ncurses6-config
+    - /usr/bin/tabs
+    - /usr/bin/tic
+    - /usr/bin/toe
+    - /usr/bin/tput
+    - /usr/bin/tset
+headers:
+    checksum: sha256:a3099769a23a1e491146cc16d192bc3822b46424b9e5abedee7730f18dd96a5f
+    files:
+    - /usr/include/curses.h
+    - /usr/include/eti.h
+    - /usr/include/form.h
+    - /usr/include/menu.h
+    - /usr/include/nc_tparm.h
+    - /usr/include/ncurses.h
+    - /usr/include/ncurses_dll.h
+    - /usr/include/panel.h
+    - /usr/include/term.h
+    - /usr/include/term_entry.h
+    - /usr/include/termcap.h
+    - /usr/include/tic.h
+    - /usr/include/unctrl.h
+libs:
+    checksum: sha256:7a3409640ef88cc296954370331308118c0d637a541e8613740b9660dee04b15
+    files:
+    - /usr/lib/libcurses.a
+    - /usr/lib/libform.a
+    - /usr/lib/libform_g.a
+    - /usr/lib/libmenu.a
+    - /usr/lib/libmenu_g.a
+    - /usr/lib/libncurses.a
+    - /usr/lib/libncurses_g.a
+    - /usr/lib/libpanel.a
+    - /usr/lib/libpanel_g.a

@@ -1,8 +1,12 @@
-headers:
-  - /usr/include/termcap.h
-
-libs:
-  - /usr/lib/libtermcap.a
-
 bc:
-  - /usr/bc
+    checksum: sha256:189cd46c6e17d76779532f98f0502f0863aa032302e0aaddeba8a22b9dbc860e
+    files:
+    - /usr/bc
+headers:
+    checksum: sha256:ccfaca48ca0453438932553d513f201bb38f747cb9face3b13c1b70849b25c91
+    files:
+    - /usr/include/termcap.h
+libs:
+    checksum: sha256:2d249bf938bded28d266d34d30fb2316b4dafef06f58d43cbd4cd2fb6b28e63c
+    files:
+    - /usr/lib/libtermcap.a

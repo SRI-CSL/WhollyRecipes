@@ -1,9 +1,13 @@
-headers:
-  - /usr/include/ffi.h
-  - /usr/include/ffitarget.h
-
-libs:
-  - /usr/lib/libffi.a
-
 bc:
-  - /usr/bc
+    checksum: sha256:3df6453d2fe4e68872e5242cc54db25ba7e2a4fb3bf60005210a30457042da96
+    files:
+    - /usr/bc
+headers:
+    checksum: sha256:295b5a91845905c35918938d67595f9223fb84c4e38fbe51676620df86f21846
+    files:
+    - /usr/include/ffi.h
+    - /usr/include/ffitarget.h
+libs:
+    checksum: sha256:e4b52e730a0f7e8fb6281cf98217c649e1b5775a3db3a50d32ee810189207ff2
+    files:
+    - /usr/lib/libffi.a

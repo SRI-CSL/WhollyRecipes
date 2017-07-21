@@ -1,10 +1,13 @@
-libs:
-  - /usr/lib/libuv.a
-
 headers:
-  - /usr/include/uv-errno.h
-  - /usr/include/uv-linux.h
-  - /usr/include/uv-threadpool.h
-  - /usr/include/uv-unix.h
-  - /usr/include/uv-version.h
-  - /usr/include/uv.h
+    checksum: sha256:45bd2ffcd063a8c46f380c7a19bd8c814be0c9746bdfe0df7b26ce5d64142d2b
+    files:
+    - /usr/include/uv-errno.h
+    - /usr/include/uv-linux.h
+    - /usr/include/uv-threadpool.h
+    - /usr/include/uv-unix.h
+    - /usr/include/uv-version.h
+    - /usr/include/uv.h
+libs:
+    checksum: sha256:d444a851f6c4870371bce620cbfe8e03a5f0921b2d2285b4e1b74b6198247c52
+    files:
+    - /usr/lib/libuv.a

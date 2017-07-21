@@ -1,33 +1,38 @@
-headers:
-  - /usr/include/readline/chardefs.h
-  - /usr/include/readline/history.h
-  - /usr/include/readline/keymaps.h
-  - /usr/include/readline/readline.h
-  - /usr/include/readline/rlconf.h
-  - /usr/include/readline/rlstdc.h
-  - /usr/include/readline/rltypedefs.h
-  - /usr/include/readline/tilde.h
-
-libs:
-  - /usr/lib/libhistory.a
-  - /usr/lib/libreadline.a
-
-cfiles:
-  - /usr/share/readline/excallback.c
-  - /usr/share/readline/fileman.c
-  - /usr/share/readline/hist_erasedups.c
-  - /usr/share/readline/hist_purgecmd.c
-  - /usr/share/readline/histexamp.c
-  - /usr/share/readline/manexamp.c
-  - /usr/share/readline/rl-callbacktest.c
-  - /usr/share/readline/rl-fgets.c
-  - /usr/share/readline/rl.c
-  - /usr/share/readline/rlbasic.c
-  - /usr/share/readline/rlcat.c
-  - /usr/share/readline/rlevent.c
-  - /usr/share/readline/rlptytest.c
-  - /usr/share/readline/rltest.c
-  - /usr/share/readline/rlversion.c
-
 bc:
-  - /usr/bc
+    checksum: sha256:5755e854da1bb4d7b95ddda7bf5c8ec318fb9f0190c84e9f92e79a10513302dc
+    files:
+    - /usr/bc
+cfiles:
+    checksum: sha256:e0e2d6fc5facc34bb568ee9d0ec6d5fe151e6c5d972e4712fadde817f0d75ea6
+    files:
+    - /usr/share/readline/excallback.c
+    - /usr/share/readline/fileman.c
+    - /usr/share/readline/hist_erasedups.c
+    - /usr/share/readline/hist_purgecmd.c
+    - /usr/share/readline/histexamp.c
+    - /usr/share/readline/manexamp.c
+    - /usr/share/readline/rl-callbacktest.c
+    - /usr/share/readline/rl-fgets.c
+    - /usr/share/readline/rl.c
+    - /usr/share/readline/rlbasic.c
+    - /usr/share/readline/rlcat.c
+    - /usr/share/readline/rlevent.c
+    - /usr/share/readline/rlptytest.c
+    - /usr/share/readline/rltest.c
+    - /usr/share/readline/rlversion.c
+headers:
+    checksum: sha256:f0f5628f5c007ef0fbb43d46269cd342c86aefdd9a34890af6e49dc43791d912
+    files:
+    - /usr/include/readline/chardefs.h
+    - /usr/include/readline/history.h
+    - /usr/include/readline/keymaps.h
+    - /usr/include/readline/readline.h
+    - /usr/include/readline/rlconf.h
+    - /usr/include/readline/rlstdc.h
+    - /usr/include/readline/rltypedefs.h
+    - /usr/include/readline/tilde.h
+libs:
+    checksum: sha256:17086d9eb743b199115e6bcfb7d75fc3f1e689789ea8935eda0773e194edb324
+    files:
+    - /usr/lib/libhistory.a
+    - /usr/lib/libreadline.a

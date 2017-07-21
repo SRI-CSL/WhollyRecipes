@@ -1,12 +1,17 @@
-bin:
-  - /usr/bin/sqlite3
-
-headers:
-  - /usr/include/sqlite3.h
-  - /usr/include/sqlite3ext.h
-
-libs:
-  - /usr/lib/libsqlite3.a
-
 bc:
-  - /usr/bc
+    checksum: sha256:86355f98418c0750c79146c39d5666234e869d8bdb8251f6fad807be6bd08c24
+    files:
+    - /usr/bc
+bin:
+    checksum: sha256:18e132a9166278fb3687e84f94e7210e66af64fe0b21d5bbd68fc0c882fa6dc6
+    files:
+    - /usr/bin/sqlite3
+headers:
+    checksum: sha256:64b60252162375ff0530141c161cd77d2c530e7de776b1de09c094e85f667db1
+    files:
+    - /usr/include/sqlite3.h
+    - /usr/include/sqlite3ext.h
+libs:
+    checksum: sha256:8982bb8ed52e723828bd565ecce8b738bad00d0320810086e2a86dad5c417bde
+    files:
+    - /usr/lib/libsqlite3.a

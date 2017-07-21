@@ -1,22 +1,27 @@
-bin:
-  - /usr/bin/pcre-config
-  - /usr/bin/pcregrep
-  - /usr/bin/pcretest
-
-headers:
-  - /usr/include/pcre.h
-  - /usr/include/pcre_scanner.h
-  - /usr/include/pcre_stringpiece.h
-  - /usr/include/pcrecpp.h
-  - /usr/include/pcrecpparg.h
-  - /usr/include/pcreposix.h
-
-libs:
-  - /usr/lib/libpcre.a
-  - /usr/lib/libpcre16.a
-  - /usr/lib/libpcre32.a
-  - /usr/lib/libpcrecpp.a
-  - /usr/lib/libpcreposix.a
-
 bc:
-  - /usr/bc
+    checksum: sha256:2574ff2da0386ecff5ffe4ee3db8a268560fc042409af6e17f78f7deb13403e8
+    files:
+    - /usr/bc
+bin:
+    checksum: sha256:efe3264ca04184833dbb25d238d4f8fec9c04b08f240e246712e22b037039cbb
+    files:
+    - /usr/bin/pcre-config
+    - /usr/bin/pcregrep
+    - /usr/bin/pcretest
+headers:
+    checksum: sha256:a9bacf94868f1c83c6377ffe2febb2cbca75ed71b229f886818e707509c5e89e
+    files:
+    - /usr/include/pcre.h
+    - /usr/include/pcre_scanner.h
+    - /usr/include/pcre_stringpiece.h
+    - /usr/include/pcrecpp.h
+    - /usr/include/pcrecpparg.h
+    - /usr/include/pcreposix.h
+libs:
+    checksum: sha256:5abbc87db5c6bd8ba167f085523794fd5714d5b2926fe5847594c050c70370f4
+    files:
+    - /usr/lib/libpcre.a
+    - /usr/lib/libpcre16.a
+    - /usr/lib/libpcre32.a
+    - /usr/lib/libpcrecpp.a
+    - /usr/lib/libpcreposix.a

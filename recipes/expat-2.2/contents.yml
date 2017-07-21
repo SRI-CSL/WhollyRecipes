@@ -1,13 +1,18 @@
-bin:
-  - /usr/bin/xmlwf
-
-headers:
-  - /usr/include/expat.h
-  - /usr/include/expat_config.h
-  - /usr/include/expat_external.h
-
-libs:
-  - /usr/lib/libexpat.a
-
 bc:
-  - /usr/bc
+    checksum: sha256:be696a220a8132d3b75421ca19793b3df82f8e8cb43464a9cfb15f6805fb6619
+    files:
+    - /usr/bc
+bin:
+    checksum: sha256:06329cf0ac441ca2e31c3d717baff9eafe9bb61b0cfb8c1e608c97eaa90492d4
+    files:
+    - /usr/bin/xmlwf
+headers:
+    checksum: sha256:b86c31d20fcb8cb535d353513e4724aa97dc141c2d49be92c02e08019bc82866
+    files:
+    - /usr/include/expat.h
+    - /usr/include/expat_config.h
+    - /usr/include/expat_external.h
+libs:
+    checksum: sha256:843bb87e624ebb925d49b0047d33feae4a05c71e6de86e3b81508ec2a597b923
+    files:
+    - /usr/lib/libexpat.a

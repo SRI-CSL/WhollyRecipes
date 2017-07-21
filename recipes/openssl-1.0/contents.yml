@@ -1,9 +1,12 @@
 bin:
+    checksum: sha256:8ad6951c987fc0d55d63a7dd42e37ca09f8694bc7b4f9be81a90a4d13fd9127e
+    files:
     - /usr/bin/c_rehash
     - /usr/bin/c_rehash
     - /usr/bin/openssl
-
 headers:
+    checksum: sha256:fd2335701a1be4e5b16f714fc868c0422f4950f98d3fe6e9f946ff264315328c
+    files:
     - /usr/include/openssl/
     - /usr/include/openssl/aes.h
     - /usr/include/openssl/asn1.h
@@ -80,8 +83,9 @@ headers:
     - /usr/include/openssl/x509.h
     - /usr/include/openssl/x509_vfy.h
     - /usr/include/openssl/x509v3.h
-
 libs:
+    checksum: sha256:c5a5ba6d61ffc096f03adc174b31b3ae02b33f92e46e4f97dc0804c8485b2888
+    files:
     - /usr/lib/engines
     - /usr/lib/libcrypto.a
     - /usr/lib/libssl.a
@@ -89,8 +93,9 @@ libs:
     - /usr/lib/pkgconfig/libcrypto.pc
     - /usr/lib/pkgconfig/libssl.pc
     - /usr/lib/pkgconfig/openssl.pc
-
 rt:
+    checksum: sha256:f878a18ca4bd5fd8fa889e6b39ab82cae6f3dd0cbfc41f33f631cdf4c4fd87ab
+    files:
     - /usr/ssl/
     - /usr/ssl/certs/
     - /usr/ssl/misc/

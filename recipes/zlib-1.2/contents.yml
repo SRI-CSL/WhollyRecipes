@@ -1,9 +1,13 @@
-headers:
-  - /usr/include/zconf.h
-  - /usr/include/zlib.h
-
-libs:
-  - /usr/lib/libz.a
-
 bc:
-  - /usr/bc
+    checksum: sha256:eb2ae1ea5d1770fe697a1c996ca1f78f86c082168ff409b937b6a8dfceb6efdc
+    files:
+    - /usr/bc
+headers:
+    checksum: sha256:965e3a18e6fe326493421266567c91e555c97b4db68ccba7ab4569ecbcbc8721
+    files:
+    - /usr/include/zconf.h
+    - /usr/include/zlib.h
+libs:
+    checksum: sha256:2330e32f34ba6d09bdb51e4cb0a0aa650f7091947c6cb659029a22808e4ea103
+    files:
+    - /usr/lib/libz.a

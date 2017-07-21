@@ -1,21 +1,26 @@
-bin:
-  - /usr/bin/bunzip2
-  - /usr/bin/bzcat
-  - /usr/bin/bzcmp
-  - /usr/bin/bzdiff
-  - /usr/bin/bzegrep
-  - /usr/bin/bzfgrep
-  - /usr/bin/bzgrep
-  - /usr/bin/bzip2
-  - /usr/bin/bzip2recover
-  - /usr/bin/bzless
-  - /usr/bin/bzmore
-
-libs:
-  - /usr/lib/libbz2.a
-
-headers:
-  - /usr/include/bzlib.h
-
 bc:
-  - /usr/bc
+    checksum: sha256:07bd2a9b55b6858e9b002cf76b0dad22a6b62d9da1d20e33f76ad223905dcd48
+    files:
+    - /usr/bc
+bin:
+    checksum: sha256:21e946e8fd2279e8ec8b93f9274b4e91d2c918725871d428525f285d23f36ed1
+    files:
+    - /usr/bin/bunzip2
+    - /usr/bin/bzcat
+    - /usr/bin/bzcmp
+    - /usr/bin/bzdiff
+    - /usr/bin/bzegrep
+    - /usr/bin/bzfgrep
+    - /usr/bin/bzgrep
+    - /usr/bin/bzip2
+    - /usr/bin/bzip2recover
+    - /usr/bin/bzless
+    - /usr/bin/bzmore
+headers:
+    checksum: sha256:4c00c2b51cb40ce511c913d7359106567f3e45b73d0ddf43289d2fc50ce70c17
+    files:
+    - /usr/include/bzlib.h
+libs:
+    checksum: sha256:cf9f3609460fa364258ecc85291e762c7e7307dd8d039a41ca23b21ecc94c73b
+    files:
+    - /usr/lib/libbz2.a

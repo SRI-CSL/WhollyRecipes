@@ -1,17 +1,22 @@
-bin:
-  - /usr/bin/gdbm_dump
-  - /usr/bin/gdbm_load
-  - /usr/bin/gdbmtool
-
-headers:
-  - /usr/include/dbm.h
-  - /usr/include/gdbm.h
-  - /usr/include/ndbm.h
-  - /usr/include/gdbm/ndbm.h
-
-libs:
-  - /usr/lib/libgdbm.a
-  - /usr/lib/libgdbm_compat.a
-
 bc:
-  - /usr/bc
+    checksum: sha256:66cdaaf5865115bd2588a93cbe2d4d9f8416928f660d3033f0dbdd36ff53a89f
+    files:
+    - /usr/bc
+bin:
+    checksum: sha256:d681663a3f5c196004e42e04881e06151f31fc4ffea9f66cec49baf61703ef0e
+    files:
+    - /usr/bin/gdbm_dump
+    - /usr/bin/gdbm_load
+    - /usr/bin/gdbmtool
+headers:
+    checksum: sha256:39e504fcdc1cc260fd7b4de70d4a7af299499ab696aa39000b342de12af7adf5
+    files:
+    - /usr/include/dbm.h
+    - /usr/include/gdbm.h
+    - /usr/include/ndbm.h
+    - /usr/include/gdbm/ndbm.h
+libs:
+    checksum: sha256:db24bdcd668b121f82128716330e48ca859540d107e47e3154e8ba924ed14ddd
+    files:
+    - /usr/lib/libgdbm.a
+    - /usr/lib/libgdbm_compat.a
