@@ -1,17 +1,17 @@
 bc:
-    checksum: sha256:86355f98418c0750c79146c39d5666234e869d8bdb8251f6fad807be6bd08c24
+    checksum: sha256:4f9170f7c2cb4f701dac9826509ed14de8a0aeb1597d36bbeb499dd8bdbee00c
     files:
     - /usr/bc
 bin:
-    checksum: sha256:18e132a9166278fb3687e84f94e7210e66af64fe0b21d5bbd68fc0c882fa6dc6
+    checksum: sha256:557f6deeeafc8dc3bff27f8ed97ef65ed15b5060f6e6f1f646e190db96573eb0
     files:
     - /usr/bin/sqlite3
 headers:
-    checksum: sha256:64b60252162375ff0530141c161cd77d2c530e7de776b1de09c094e85f667db1
+    checksum: sha256:0663e892fbb7fbcfb1f9402de9ff8efdaddb09c6730cfba88218273967880c38
     files:
     - /usr/include/sqlite3.h
     - /usr/include/sqlite3ext.h
 libs:
-    checksum: sha256:8982bb8ed52e723828bd565ecce8b738bad00d0320810086e2a86dad5c417bde
+    checksum: sha256:e99ccebd1c087ee4137fffe6cf5efb04cbb78b14a9460da60fdd2c7ce8038328
     files:
     - /usr/lib/libsqlite3.a
