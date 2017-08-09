@@ -1,8 +1,8 @@
 release_date: 2017-07-18
 
 variables:
-  - pkg_name: node
-  - pkg_ver: '6.11.0'
+    - pkg_name: node
+    - pkg_ver: '6.11.0'
 
 # Dependencies
 dependencies:
@@ -23,32 +23,36 @@ dependencies:
         - libs
 
 prepare:
-  - apk add linux-headers python2
+    - apk add linux-headers python2
 
 # Source
 source:
-  tar.gz: https://nodejs.org/dist/v{pkg_ver}/{pkg_name}-v{pkg_ver}.tar.gz
+    tar.gz: https://nodejs.org/dist/v{pkg_ver}/{pkg_name}-v{pkg_ver}.tar.gz
 
 resources:
-  - common.gypi
-  - config.gypi
+    - common.gypi
+    - config.gypi
+    - patch_makefile_bundled_deps.patch
 
 # Build stage
 build:
-  # Patch common.gypi for rdynamic flag
-  - cp ../common.gypi ./
-  - WLLVM_CONFIGURE_ONLY=1
-    CC=gclang
-    CXX=gclang++
-    ./configure
-    --prefix={__INSTALL_DIR__}
-    --fully-static
-    --shared-libuv
-    --shared-zlib
-    --shared-openssl
-    --with-intl=full-icu
-    --download=all
-  # Patch config.gypi for right order between libssl and libcrypto
-  - cp ../config.gypi ./
-  - CC=gclang CXX=gclang++ make -j{__NB_CORES__}
-  - make install
+    # Patch common.gypi for rdynamic flag
+    - cp ../common.gypi ./
+    - rm -rf deps/openssl deps/uv deps/zlib
+    - WLLVM_CONFIGURE_ONLY=1
+        CC=gclang
+        CXX=gclang++
+        ./configure
+        --prefix={__INSTALL_DIR__}
+        --fully-static
+        --shared-libuv
+        --shared-zlib
+        --shared-openssl
+        --with-intl=full-icu
+        --download=all
+    # Patch makefile
+    - patch -p1 < ../patch_makefile_bundled_deps.patch
+    # Patch config.gypi for right order between libssl and libcrypto
+    - cp ../config.gypi ./
+    - CC=gclang CXX=gclang++ make -j{__NB_CORES__} BUILDTYPE=Release
+    - make install
