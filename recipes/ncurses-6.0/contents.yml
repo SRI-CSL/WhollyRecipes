@@ -1,5 +1,5 @@
 bc:
-    checksum: sha256:66ca37cb7650517125c2e98d55399d33c8ba216a87dcbcced38a69df1a57f9f4
+    checksum: sha256:6c60b8b41ba0fd420021841cbc531134609351cd1cfe58c5e57a5b8a2b2dc753
     files:
     - /usr/bc
 bin:
