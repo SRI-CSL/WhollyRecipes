@@ -1,22 +1,22 @@
 bc:
-    checksum: sha256:66cdaaf5865115bd2588a93cbe2d4d9f8416928f660d3033f0dbdd36ff53a89f
+    checksum: sha256:e76151374048edd974f3a64443971f03be5c65587da7341e8ad44af6a1f6900c
     files:
     - /usr/bc
 bin:
-    checksum: sha256:d681663a3f5c196004e42e04881e06151f31fc4ffea9f66cec49baf61703ef0e
+    checksum: sha256:8fa5b56d8afd7b07a3259fc6c38265429a4ca6a28fc2386219a42d4ad1592f34
     files:
     - /usr/bin/gdbm_dump
     - /usr/bin/gdbm_load
     - /usr/bin/gdbmtool
 headers:
-    checksum: sha256:39e504fcdc1cc260fd7b4de70d4a7af299499ab696aa39000b342de12af7adf5
+    checksum: sha256:56234385400aa0762253df1b3717d647de5c1db8460b3ae05f18054c50850729
     files:
     - /usr/include/dbm.h
     - /usr/include/gdbm.h
     - /usr/include/ndbm.h
     - /usr/include/gdbm/ndbm.h
 libs:
-    checksum: sha256:db24bdcd668b121f82128716330e48ca859540d107e47e3154e8ba924ed14ddd
+    checksum: sha256:408c84468b1f66b4d15225fa02f62baf05e1c0530e582e41b019f662258b6dd3
     files:
     - /usr/lib/libgdbm.a
     - /usr/lib/libgdbm_compat.a

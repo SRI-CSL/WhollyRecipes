@@ -1,13 +1,13 @@
 bc:
-    checksum: sha256:eb2ae1ea5d1770fe697a1c996ca1f78f86c082168ff409b937b6a8dfceb6efdc
+    checksum: sha256:a5a3e7191c5677731446f89d26cdd80122c362849055eb27074bac55c3dac7bd
     files:
     - /usr/bc
 headers:
-    checksum: sha256:965e3a18e6fe326493421266567c91e555c97b4db68ccba7ab4569ecbcbc8721
+    checksum: sha256:93fb1c1ae7a3d1902f9f7de0110f2abe94ae7218efe2d1fc9276f68ec5c9ab09
     files:
     - /usr/include/zconf.h
     - /usr/include/zlib.h
 libs:
-    checksum: sha256:2330e32f34ba6d09bdb51e4cb0a0aa650f7091947c6cb659029a22808e4ea103
+    checksum: sha256:e2e580d3a47a544b34f0d6ba473b917368142d692d47a77a6cdd7f0c447bc403
     files:
     - /usr/lib/libz.a

@@ -1,9 +1,9 @@
 bc:
-    checksum: sha256:07bd2a9b55b6858e9b002cf76b0dad22a6b62d9da1d20e33f76ad223905dcd48
+    checksum: sha256:5c032139395c5cac9b6f1084d22128b85f317f3491298d17c16838f571bb1334
     files:
     - /usr/bc
 bin:
-    checksum: sha256:21e946e8fd2279e8ec8b93f9274b4e91d2c918725871d428525f285d23f36ed1
+    checksum: sha256:c5933b17096d3ef5f1e2ce64f37e46c19dbac22d512b38c63ab0a3b78dc1b457
     files:
     - /usr/bin/bunzip2
     - /usr/bin/bzcat
@@ -17,10 +17,10 @@ bin:
     - /usr/bin/bzless
     - /usr/bin/bzmore
 headers:
-    checksum: sha256:4c00c2b51cb40ce511c913d7359106567f3e45b73d0ddf43289d2fc50ce70c17
+    checksum: sha256:010e0479c292ae6d3e1634d450fb1aaebecd0dea5bccfcc903a9c66ec3e10750
     files:
     - /usr/include/bzlib.h
 libs:
-    checksum: sha256:cf9f3609460fa364258ecc85291e762c7e7307dd8d039a41ca23b21ecc94c73b
+    checksum: sha256:f33c2a80949cca9e6b4c30519f7e1c6c70603d9dbd0a54bb319eb6b3ee1c95b8
     files:
     - /usr/lib/libbz2.a

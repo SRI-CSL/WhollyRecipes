@@ -1,13 +1,13 @@
 bc:
-    checksum: sha256:3df6453d2fe4e68872e5242cc54db25ba7e2a4fb3bf60005210a30457042da96
+    checksum: sha256:22a444728a3a9f6ac34cfa6552615b01731f98b6c69fca073bd6acb726943c9f
     files:
     - /usr/bc
 headers:
-    checksum: sha256:295b5a91845905c35918938d67595f9223fb84c4e38fbe51676620df86f21846
+    checksum: sha256:2e0876d1d410322902f43e68cb94ef88ab4e3fa11b424b035793f8f806e69b63
     files:
     - /usr/include/ffi.h
     - /usr/include/ffitarget.h
 libs:
-    checksum: sha256:e4b52e730a0f7e8fb6281cf98217c649e1b5775a3db3a50d32ee810189207ff2
+    checksum: sha256:05203bdcce61b3c4fe388b4925bb94039c2c4573fe316e3dba09119b0fdc7a6b
     files:
     - /usr/lib/libffi.a

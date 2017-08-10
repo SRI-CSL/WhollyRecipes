@@ -5,7 +5,7 @@ bin:
     - /usr/bin/c_rehash
     - /usr/bin/openssl
 headers:
-    checksum: sha256:fd2335701a1be4e5b16f714fc868c0422f4950f98d3fe6e9f946ff264315328c
+    checksum: sha256:ead638a15b95c9e1ff7c101b6ba3324918db79ec192a01166a5f98e358a554a7
     files:
     - /usr/include/openssl/
     - /usr/include/openssl/aes.h
@@ -94,7 +94,7 @@ libs:
     - /usr/lib/pkgconfig/libssl.pc
     - /usr/lib/pkgconfig/openssl.pc
 rt:
-    checksum: sha256:f878a18ca4bd5fd8fa889e6b39ab82cae6f3dd0cbfc41f33f631cdf4c4fd87ab
+    checksum: sha256:1f6ccf0b4acc0555e1eac19e07d23fdd53216c57311f60b7264329d03f250013
     files:
     - /usr/ssl/
     - /usr/ssl/certs/

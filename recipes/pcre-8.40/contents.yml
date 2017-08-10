@@ -9,7 +9,7 @@ bin:
     - /usr/bin/pcregrep
     - /usr/bin/pcretest
 headers:
-    checksum: sha256:a9bacf94868f1c83c6377ffe2febb2cbca75ed71b229f886818e707509c5e89e
+    checksum: sha256:ba90654800d38998e75362055ce94631f6295dd8d3a32c362857e7b119a0684b
     files:
     - /usr/include/pcre.h
     - /usr/include/pcre_scanner.h

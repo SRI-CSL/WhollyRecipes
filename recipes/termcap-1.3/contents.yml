@@ -1,12 +1,12 @@
 bc:
-    checksum: sha256:189cd46c6e17d76779532f98f0502f0863aa032302e0aaddeba8a22b9dbc860e
+    checksum: sha256:dba7e03b5ade2c478f83daa06d300026ce5d47e04c106754698f817b6891aa1b
     files:
     - /usr/bc
 headers:
-    checksum: sha256:ccfaca48ca0453438932553d513f201bb38f747cb9face3b13c1b70849b25c91
+    checksum: sha256:35b0fb0213effe7215db140b117501dbc52955c816b7b0cfc1520b8471a67622
     files:
     - /usr/include/termcap.h
 libs:
-    checksum: sha256:2d249bf938bded28d266d34d30fb2316b4dafef06f58d43cbd4cd2fb6b28e63c
+    checksum: sha256:0abcd5852dad0a38030eb69c720f31f26284cb6aa87fd56a0d6fe6622f796d00
     files:
     - /usr/lib/libtermcap.a

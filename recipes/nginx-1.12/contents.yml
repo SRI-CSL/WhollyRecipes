@@ -3,7 +3,7 @@ bin:
     files:
     - /usr/bin/nginx
 conf:
-    checksum: sha256:5e4bc7b3b19a71954a02dc2e83c5494847c1a632e8fd70ff7db35cad519de45b
+    checksum: sha256:acbb7457b19256451f5f31dd170d6fd2acf8f995a7853f5dc56ba1c5c6d9b22c
     files:
     - /usr/conf/
     - /usr/conf/fastcgi.conf
@@ -22,7 +22,7 @@ conf:
     - /usr/conf/uwsgi_params.default
     - /usr/conf/win-utf
 rt:
-    checksum: sha256:01e80ef915e0b7337ec3033fab1412c26681040c9e5c711e5b4793d91b85c935
+    checksum: sha256:7e61660edab7331af25d07cbe7064934728be0ef31223d8a19ad47696e550bbe
     files:
     - /usr/html/
     - /usr/html/50x.html

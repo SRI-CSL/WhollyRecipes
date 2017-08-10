@@ -1,5 +1,5 @@
 bin:
-    checksum: sha256:892c5a80b835fc6fa561b2930a9220d080ccfed2288326b54c8b999866753c42
+    checksum: sha256:a132208511bb0f54d9a8d5728ece2daea6b6a0ea0b3293820d34c60f71d31052
     files:
     - /usr/bin/2to3
     - /usr/bin/idle
@@ -12,7 +12,7 @@ bin:
     - /usr/bin/python2.7-config
     - /usr/bin/smtpd.py
 headers:
-    checksum: sha256:518bc5811d8f29a6c593ee8b60c3e43fb21ce9b150a047453279f197eedd5446
+    checksum: sha256:e32b24d40a26de09b4fa8e882a7ff4f613e21fc1cdbf19851e7e80ef02a4a028
     files:
     - /usr/include/python2.7/Python-ast.h
     - /usr/include/python2.7/Python.h
@@ -107,11 +107,11 @@ headers:
     - /usr/include/python2.7/warnings.h
     - /usr/include/python2.7/weakrefobject.h
 libs:
-    checksum: sha256:a91e78d68b9eadb866f739c5abd5e13b32224585ae1d48d16e5cf0275550ad1a
+    checksum: sha256:d66848f2dc80f169b705a3e37535f2f8b2377f9d7acb47745bd153383fa6c8a5
     files:
     - /usr/lib/libpython2.7.a
 rtlibs:
-    checksum: sha256:72d8a08f9b1ec498045bc4628f90f68d698485798b86b36d58d8a3117c4bba1b
+    checksum: sha256:62d913f966f9f332c1eaabef67cf90582bc758518b9cb5b40e897cbd77ea8b82
     files:
     - /usr/lib/python2.7/BaseHTTPServer.py
     - /usr/lib/python2.7/BaseHTTPServer.pyc
